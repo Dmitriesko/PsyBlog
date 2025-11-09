@@ -17,7 +17,7 @@
 <body>
 <header class="header">
     <div class="header__title">
-        <h1 class="title">EUNOIA</h1>
+        <h1 class="title"><a href="{{route("home")}}">EUNOIA</a></h1>
     </div>
 
     <hr>
