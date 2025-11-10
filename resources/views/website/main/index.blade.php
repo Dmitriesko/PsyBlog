@@ -41,7 +41,9 @@
             </label>
 
             <div id="searchOverlay" class="search-overlay hidden">
-                <input type="text" placeholder="Поиск по статьям..." class="search-input">
+                <form action="{{ route('article.search') }}" method="GET" class="search-form">
+                    <input type="text" name="q" placeholder="Поиск по статьям..." class="search-input">
+                </form>
                 <label for="searchToggle" class="close-search">✖</label>
             </div>
         </nav>

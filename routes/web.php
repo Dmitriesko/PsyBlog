@@ -29,6 +29,7 @@ Route::prefix('')->group(function () {
         Route::get('/', [MainController::class, 'index'])->name('home');
         Route::get('/article', [WebsiteArticleController::class, 'index'])->name('article.index');
         Route::get('/article/{article}', [WebsiteArticleController::class, 'show'])->name('article.show');
+        Route::get('/search', [WebsiteArticleController::class, 'search'])->name('article.search');
 });
 
 Route::prefix('admin')->group(function () {

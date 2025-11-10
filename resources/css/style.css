@@ -132,11 +132,15 @@ hr {
 }
 
 .search-input {
-    width: 60%;
+    width: 100%;
     padding: 10px 15px;
     font-size: 1.1rem;
     border: 1px solid #ddd;
     border-radius: 8px;
+}
+
+.search-form {
+    width: 60%;
 }
 
 .close-search {

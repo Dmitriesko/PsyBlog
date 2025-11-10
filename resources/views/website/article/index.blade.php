@@ -1,22 +1,25 @@
 @extends('layouts.app')
 
 @section('content')
-
-    <h1>Все статьи</h1>
-
-    <div class="grid grid-cols-3 gap-4">
-        @foreach($articles as $article)
-            <div class="border rounded p-4 shadow">
-                <h2 class="text-xl font-bold mb-2">{{ $article->title }}</h2>
-                <p>{{ Str::limit($article->description, 120) }}</p>
-                <div class="">
-                    <a href="{{ route('article.show', $article->id) }}" class="article-link">
-                        Читать дальше
-                    </a>
-                </div>
-            </div>
-        @endforeach
-    </div>
+    <section class="container">
+        <div class="articles__list">
+            @foreach($articles as $article)
+                <a href="{{ route('article.show', $article->id) }}" class="articles__item-link">
+                    <article class="articles__item">
+                        <div class="articles__image-wrapper">
+                            @if($article->image_preview)
+                                <img class="articles__image" src="{{ Storage::url($article->image_preview) }}" alt="{{ $article->title }}">
+                            @else
+                                <img class="articles__image" src="{{ Vite::asset('resources/images/default.jpg') }}" alt="{{ $article->title }}">
+                            @endif
+                        </div>
+                        <h3 class="articles__name">{{ $article->title }}</h3>
+                        {{--                        <p class="articles__text">{{ Str::limit($article->description, 120) }}</p>--}}
+                    </article>
+                </a>
+            @endforeach
+        </div>
+    </section>
 
     {{ $articles->links() }}
 @endsection
