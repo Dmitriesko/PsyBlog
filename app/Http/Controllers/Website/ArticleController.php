@@ -46,5 +46,17 @@ class ArticleController extends Controller
         return view('website.article.show', compact('article'));
     }
 
+    public function search(Request $request)
+    {
+        $search = mb_strtolower($request->input('q'));
+        //todo заменить на ilike
+        $articles = Article::query()->where('title', 'LIKE', '%' . $search . '%')
+        ->paginate(12);
+
+        return view('website.article.index', compact('articles'));
+    }
+
+
+
 }
 
