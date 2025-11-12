@@ -8,6 +8,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @vite('resources/css/article_page.css')
     @vite('resources/css/admin.css')
+    @vite('resources/sass/app.scss')
     <style>
         body {
             display: flex;

@@ -13,10 +13,30 @@ class ArticleController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $articles = Article::with('category')->get();
-        return view('admin.article.index', compact('articles'));
+        $search = $request->input('search');
+        $category = $request->input('category');
+        $isPublished = $request->input('is_published') !== null ? $request->input('is_published') === "on" : null;
+
+        $categories = Category::all();
+
+
+        $articles = Article::with('category')
+            ->when($search !== null, function ($query) use ($search) {
+                $query->where('title', 'LIKE', "%{$search}%");
+            })
+            ->when($category !== null, function ($query) use ($category) {
+                $query->where('category_id', $category);
+            })
+            ->when($isPublished !== null, function ($query) use ($isPublished) {
+                $query->where('is_published', $isPublished);
+            })
+            ->get();
+
+
+
+        return view('admin.article.index', compact('articles', 'categories'));
     }
 
     /**
