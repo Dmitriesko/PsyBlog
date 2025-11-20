@@ -40,22 +40,6 @@
     </style>
 </head>
 <body>
-<div class="sidebar d-flex flex-column justify-content-between">
-    <div>
-        <h2>Админка</h2>
-        <a href="/admin">📊 Главная</a>
-        <a href="{{ route('admin.articles.index')}}">📝 Статьи </a>
-        <a href="#">👤 Пользователи (пока нет)</a>
-    </div>
-
-    @auth
-        <form action="{{route('logout')}}" method="post">
-            @csrf
-            <button class="btn btn-danger" type="submit">Выйти</button>
-        </form>
-    @endauth
-
-</div>
 <div class="content">
 
     <div class="container">

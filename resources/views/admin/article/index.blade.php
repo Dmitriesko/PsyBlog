@@ -75,5 +75,7 @@
 
         </tbody>
     </table>
+
+    {{ $articles->links() }}
 @endsection
 

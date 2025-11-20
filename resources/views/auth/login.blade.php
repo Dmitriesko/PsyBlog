@@ -1,6 +1,4 @@
-<?php
-
-@extends('layouts.app')
+@extends('layouts.admin-clear')
 
 @section('content')
     <h1>Вход</h1>
@@ -28,6 +26,9 @@
         <div>
             <label><input type="checkbox" name="remember"> Запомнить меня</label>
         </div>
-        <button type="submit">Войти</button>
+
+        <button class="btn btn-success" type="submit">Войти</button>
+
+        <a class="btn btn-primary" href="{{route('register')}}">Регистрация</a>
     </form>
 @endsection

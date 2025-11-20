@@ -30,7 +30,7 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route('home')->with('success', 'Регистрация успешна. Привет!');
+        return redirect()->route('admin.articles.index')->with('success', 'Регистрация успешна. Привет!');
     }
 
     public function showLogin()

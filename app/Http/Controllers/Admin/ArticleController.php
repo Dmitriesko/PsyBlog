@@ -32,7 +32,7 @@ class ArticleController extends Controller
             ->when($isPublished !== null, function ($query) use ($isPublished) {
                 $query->where('is_published', $isPublished);
             })
-            ->get();
+            ->paginate(5);
 
 
 

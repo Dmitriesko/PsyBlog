@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin-clear')
 
 @section('content')
     <h1>Регистрация</h1>
@@ -29,9 +29,12 @@
         </div>
         <div>
             <label>Подтвердите пароль</label><br>
-            <input type="password" name="password_confirmation">
+            <input class="mb-3" type="password" name="password_confirmation">
         </div>
-        <button type="submit">Зарегистрироваться</button>
+        <button class="btn btn-success" type="submit">Зарегистрироваться</button>
+
+        <a class="btn btn-primary" href="{{route('login')}}">Вход</a>
+
     </form>
 @endsection
 
